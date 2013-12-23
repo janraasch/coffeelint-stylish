@@ -1,0 +1,47 @@
+{
+  "name": "coffeelint-sytlish",
+  "version": "0.0.0",
+  "description": "Stylish reporter for CoffeeLint runtime",
+  "keywords": [
+    "reporter",
+    "validate",
+    "stylish",
+    "elegant",
+    "pretty",
+    "lint",
+    "coffee",
+    "coffeelint",
+    "coffeescript",
+    "coffee-script",
+    "codeconventions"
+  ],
+  "repository": "janraasch/coffeelint-sytlish",
+  "author": {
+    "name": "Jan Raasch",
+    "email": "jan@janraasch.com",
+    "url": "http://janraasch.com"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "prepublish": "node ./node_modules/gulp/bin/gulp.js coffee --require coffee-script",
+    "test": "node ./node_modules/mocha/bin/mocha test.coffee --require coffee-script --reporter nyan && node ./node_modules/coffeelint/bin/coffeelint index.coffee test.coffee gulpfile.coffee -f ./coffeelint.json"
+  },
+  "dependencies": {
+    "chalk": "~0.4.0",
+    "text-table": "~0.2.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.16.1",
+    "should": "~2.1.0",
+    "gulp": "~3.2.0",
+    "gulp-coffee": "~1.2.2",
+    "coffee-script": "~1.6.3",
+    "coffeelint": "~1.0.2"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "license": "MIT"
+}
