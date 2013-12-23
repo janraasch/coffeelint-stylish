@@ -1,5 +1,5 @@
 {
-  "name": "coffeelint-sytlish",
+  "name": "coffeelint-stylish",
   "version": "0.0.1",
   "description": "Stylish reporter for CoffeeLint runtime",
   "keywords": [
@@ -15,7 +15,7 @@
     "coffee-script",
     "codeconventions"
   ],
-  "repository": "janraasch/coffeelint-sytlish",
+  "repository": "janraasch/coffeelint-stylish",
   "author": {
     "name": "Jan Raasch",
     "email": "jan@janraasch.com",
