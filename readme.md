@@ -1,5 +1,6 @@
-coffeelint-stylish
+coffeelint-stylish [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
 ==================
+[![Dependency Status][depstat-image]][depstat-url] [![devDependency Status][devdepstat-image]][devdepstat-url]
 
 > Stylish reporter for CoffeeLint http://www.coffeelint.org. Heavily inspired by the beautiful [jshint-stylish](https://github.com/sindresorhus/jshint-stylish).
 
