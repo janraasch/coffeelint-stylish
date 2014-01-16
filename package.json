@@ -38,7 +38,9 @@
     "mocha": "~1.17.0",
     "should": "~2.1.0",
     "gulp": "~3.3.4",
+    "gulp-util": "~2.2.5",
     "gulp-coffee": "~1.2.2",
+    "gulp-clean": "~0.2.2",
     "coffeelint": "~1.0.2",
     "coveralls": "~2.6.1",
     "istanbul": "~0.2.3"
