@@ -34,7 +34,7 @@ describe 'coffeelint-stylish', ->
                 ret = true if /No problems/ig.test chalk.stripColor str
 
             # run reporter
-            reporter '', coffeelint.lint 'yeah()', {}
+            reporter null, coffeelint.lint 'yeah()', {}
 
             # mock out
             process.stdout.write = _log
@@ -101,3 +101,54 @@ describe 'coffeelint-stylish', ->
 
             assert ret1
             assert ret2
+
+        it 'even if they are double bad', ->
+            warns = false
+            _log = process.stdout.write
+
+
+            # mock on
+            process.stdout.write = (str = '') ->
+                warns = true if /2 warnings/ig.test chalk.stripColor str
+
+            # run reporter
+            reporter 'test', coffeelint.lint 'do => => yeah()'
+
+            # mock out
+            process.stdout.write = _log
+
+            assert warns
+
+        it 'even if they are double worse', ->
+            warns = false
+            _log = process.stdout.write
+
+
+            # mock on
+            process.stdout.write = (str = '') ->
+                warns = true if /2 errors/ig.test chalk.stripColor str
+
+            # run reporter
+            reporter 'test', coffeelint.lint 'do => => yeah()', no_unnecessary_fat_arrows:
+                level: 'error'
+
+            # mock out
+            process.stdout.write = _log
+
+            assert warns
+
+        it 'even if there are no results', ->
+            ret = false
+            _log = process.stdout.write
+
+            # mock on
+            process.stdout.write = (str = '') ->
+                ret = true if /no results/ig.test chalk.stripColor str
+
+            # run reporter
+            reporter 'no results'
+
+            # mock out
+            process.stdout.write = _log
+
+            assert ret
