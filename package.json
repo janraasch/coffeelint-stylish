@@ -25,20 +25,23 @@
     "index.js"
   ],
   "scripts": {
-    "prepublish": "node ./node_modules/gulp/bin/gulp.js coffee --require coffee-script",
-    "test": "node ./node_modules/mocha/bin/mocha test.coffee --require coffee-script --reporter nyan && node ./node_modules/coffeelint/bin/coffeelint index.coffee test.coffee gulpfile.coffee -f ./coffeelint.json"
+    "prepublish": "gulp coffee --require coffee-script",
+    "test": "coffeelint index.coffee test.coffee gulpfile.coffee -f ./coffeelint.json && istanbul test _mocha --report lcovonly -- test.coffee --require coffee-script --reporter nyan",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
     "chalk": "~0.4.0",
     "text-table": "~0.2.0"
   },
   "devDependencies": {
-    "mocha": "~1.16.1",
-    "should": "~2.1.0",
-    "gulp": "~3.2.0",
-    "gulp-coffee": "~1.2.2",
     "coffee-script": "~1.6.3",
-    "coffeelint": "~1.0.2"
+    "mocha": "~1.17.0",
+    "should": "~2.1.0",
+    "gulp": "~3.3.4",
+    "gulp-coffee": "~1.2.2",
+    "coffeelint": "~1.0.2",
+    "coveralls": "~2.6.1",
+    "istanbul": "~0.2.3"
   },
   "engines": {
     "node": ">=0.8.0"

@@ -1,4 +1,4 @@
-coffeelint-stylish [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
+coffeelint-stylish [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![NPM version][npm-image]][npm-url]
 ==================
 [![Dependency Status][depstat-image]][depstat-url] [![devDependency Status][devdepstat-image]][devdepstat-url]
 
@@ -26,12 +26,12 @@ reporter filename, coffeelint source
 
 ## Options `reporter(filename, results)`
 
-### filename 
+### filename
 Type: `String`, Default: `''`
 
 Headline of the report.
 
-### results 
+### results
 Type: `Array`, Default: `[]`
 
 Results `Array` provided by `coffeelint.lint`, see http://www.coffeelint.org/#api.
@@ -45,6 +45,9 @@ Results `Array` provided by `coffeelint.lint`, see http://www.coffeelint.org/#ap
 
 [travis-url]: http://travis-ci.org/janraasch/coffeelint-stylish
 [travis-image]: https://secure.travis-ci.org/janraasch/coffeelint-stylish.png?branch=master
+
+[coveralls-url]: https://coveralls.io/r/janraasch/coffeelint-stylish
+[coveralls-image]: https://coveralls.io/repos/janraasch/coffeelint-stylish/badge.png
 
 [depstat-url]: https://david-dm.org/janraasch/coffeelint-stylish
 [depstat-image]: https://david-dm.org/janraasch/coffeelint-stylish.png
