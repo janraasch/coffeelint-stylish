@@ -26,10 +26,14 @@ gulp.task 'pony', (cb) ->
     fs = require 'fs'
     join = require('path').join
 
-    reporter 'pony.coffee', coffeelint.lint String fs.readFileSync join __dirname, '/pony.coffee'
+    reporter 'pony.coffee', coffeelint.lint(
+        String fs.readFileSync join __dirname, '/pony.coffee'
+    )
 
     log 'Empty filename'
-    reporter null, coffeelint.lint String fs.readFileSync join __dirname, '/pony.coffee'
+    reporter null, coffeelint.lint(
+        String fs.readFileSync join __dirname, '/pony.coffee'
+    )
 
     log 'Empty results'
     reporter 'filename.coffee'

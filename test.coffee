@@ -15,7 +15,7 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                ret = true if /my name is/ig.test chalk.stripColor str
+                ret = /my name is/ig.test chalk.stripColor str
 
             # run reporter
             reporter 'my name is', coffeelint.lint 'yeah()', {}
@@ -31,7 +31,7 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                ret = true if /No problems/ig.test chalk.stripColor str
+                ret = /No problems/ig.test chalk.stripColor str
 
             # run reporter
             reporter null, coffeelint.lint 'yeah()', {}
@@ -48,11 +48,16 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                ret1 = true if /line 1  Line contains a trailing semicolon/ig.test chalk.stripColor str
-                ret2 = true if /1 warn/ig.test chalk.stripColor str
+                ret1 = /line 1  Line contains a trailing semicolon/ig.test(
+                    chalk.stripColor str
+                )
+                ret2 = /1 warn/ig.test chalk.stripColor str
 
             # run reporter
-            reporter '', coffeelint.lint 'yeah();', no_trailing_semicolons: level: 'warn'
+            reporter '', coffeelint.lint(
+                'yeah();',
+                no_trailing_semicolons: level: 'warn'
+            )
 
             # mock out
             process.stdout.write = _log
@@ -67,8 +72,10 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                ret1 = true if /line 1  Line contains a trailing semicolon/ig.test chalk.stripColor str
-                ret2 = true if /1 error/ig.test chalk.stripColor str
+                ret1 = /line 1  Line contains a trailing semicolon/ig.test(
+                    chalk.stripColor str
+                )
+                ret2 = /1 error/ig.test chalk.stripColor str
 
             # run reporter
             reporter '', coffeelint.lint 'yeah();', {}
@@ -88,10 +95,14 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                ret1 = true if /line 1  Line contains a trailing semicolon/ig.test chalk.stripColor str
-                ret2 = true if /1 error/ig.test chalk.stripColor str
-                ret3 = true if /line 1  Unnecessary fat arrow/ig.test chalk.stripColor str
-                ret4 = true if /1 warning/ig.test chalk.stripColor str
+                ret1 = /line 1  Line contains a trailing semicolon/ig.test(
+                    chalk.stripColor str
+                )
+                ret2 = /1 error/ig.test chalk.stripColor str
+                ret3 = /line 1  Unnecessary fat arrow/ig.test(
+                    chalk.stripColor str
+                )
+                ret4 = /1 warning/ig.test chalk.stripColor str
 
             # run reporter
             reporter 'test', coffeelint.lint 'do => yeah();', {}
@@ -109,7 +120,7 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                warns = true if /2 warnings/ig.test chalk.stripColor str
+                warns = /2 warnings/ig.test chalk.stripColor str
 
             # run reporter
             reporter 'test', coffeelint.lint 'do => => yeah()'
@@ -126,11 +137,13 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                warns = true if /2 errors/ig.test chalk.stripColor str
+                warns = /2 errors/ig.test chalk.stripColor str
 
             # run reporter
-            reporter 'test', coffeelint.lint 'do => => yeah()', no_unnecessary_fat_arrows:
-                level: 'error'
+            reporter 'test', coffeelint.lint(
+                'do => => yeah()',
+                no_unnecessary_fat_arrows: level: 'error'
+            )
 
             # mock out
             process.stdout.write = _log
@@ -143,7 +156,7 @@ describe 'coffeelint-stylish', ->
 
             # mock on
             process.stdout.write = (str = '') ->
-                ret = true if /no results/ig.test chalk.stripColor str
+                ret = /no results/ig.test chalk.stripColor str
 
             # run reporter
             reporter 'no results'

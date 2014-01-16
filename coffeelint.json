@@ -2,12 +2,17 @@
     "indentation": {
         "value": 4
     },
-    "max_line_length": {
-        "value": "120"
-    },
     "line_endings": {
         "level": "error",
         "value": "unix"
+    },
+    "colon_assignment_spacing": {
+        "name": "colon_assignment_spacing",
+        "level": "error",
+        "spacing": {
+            "left": 0,
+            "right": 1
+        }
     },
     "space_operators": {
         "level": "error"
@@ -21,6 +26,10 @@
     },
     "arrow_spacing": {
         "level": "error"
+    },
+    "cyclomatic_complexity": {
+        "level": "error",
+        "value": 13
     },
     "empty_constructor_needs_parens": {
         "level": "error"
