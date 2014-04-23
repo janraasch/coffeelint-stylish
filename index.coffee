@@ -5,8 +5,8 @@ table = require 'text-table'
 # sign language
 isWin = process.platform is 'win32'
 warnSign = "#{if isWin then '' else '⚠'}"
-errSign = '✖'
-happySign = '✔'
+errSign = "#{if isWin then '×' else '✖'}"
+happySign = "#{if isWin then '√' else '✔'}"
 
 exports.reporter = (filename = '', results = []) ->
     errs = 0
