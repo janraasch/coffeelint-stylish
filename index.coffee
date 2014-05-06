@@ -8,7 +8,7 @@ warnSign = "#{if isWin then '' else '⚠'}"
 errSign = "#{if isWin then '' else '✖'}"
 happySign = "#{if isWin then '' else '✔'}"
 
-exports.reporter = (filename = '', results = []) ->
+reporter = (filename = '', results = []) ->
     errs = 0
     warns = 0
     ret = ''
@@ -51,4 +51,13 @@ exports.reporter = (filename = '', results = []) ->
     # print table and summary line(s)
     console.log ret + '\n'
 
-module.exports = exports
+module.exports = class StylishReporter
+    # Maintain backward compatibility from before CoffeeLint supported external
+    # reporters.
+    @reporter: reporter
+
+    constructor: (@errorReport, options = {}) ->
+
+    publish: ->
+        for filename, results of @errorReport.paths
+            reporter filename, results
