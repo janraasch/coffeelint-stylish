@@ -34,18 +34,18 @@ exports.reporter = (filename = '', results = []) ->
 
     # append summary line(s)
     if warns > 0
-        ret += chalk.yellow.bold(
+        ret += chalk.yellow(
             "#{warnSign} #{warns} warning#{if warns is 1 then '' else 's'}"
         )
         ret += '\n' if errs > 0
 
     if errs > 0
-        ret += chalk.red.bold(
+        ret += chalk.red(
             "#{errSign} #{errs} error#{if errs is 1 then '' else 's'}"
         )
 
     if errs is 0 and warns is 0
-        ret += chalk.green.bold "#{happySign} No problems"
+        ret += chalk.green "#{happySign} No problems"
         ret = '\n' + ret.trim()
 
     # print table and summary line(s)
