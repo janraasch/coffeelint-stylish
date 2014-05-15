@@ -6,14 +6,14 @@ clean = require 'gulp-clean'
 
 # compile `.coffee`
 gulp.task 'coffee', ->
-    gulp.src(['index.coffee'])
-        .pipe(coffee bare: true)
-        .pipe(gulp.dest './')
+    gulp.src ['index.coffee']
+        .pipe coffee bare: true
+        .pipe gulp.dest './'
 
 # remove `index.js` and `coverage` dir
 gulp.task 'clean', ->
-    gulp.src(['index.js', 'coverage'], read: false)
-        .pipe(clean())
+    gulp.src ['index.js', 'coverage'], read: false
+        .pipe clean()
 
 # run tests
 gulp.task 'test', ['coffee'], ->
@@ -44,9 +44,5 @@ gulp.task 'pony', (cb) ->
     cb()
 
 # workflow
-gulp.task 'default', ->
-    gulp.run 'coffee'
-
-    gulp.watch ['index.coffee', 'test.coffee'], ->
-        log "File #{e.type} #{colors.magenta e.path}"
-        gulp.run 'test'
+gulp.task 'default', ['coffee'], ->
+    gulp.watch ['index.coffee', 'test.coffee'], ['test']
