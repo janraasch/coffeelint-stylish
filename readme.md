@@ -41,16 +41,16 @@ Results `Array` provided by `coffeelint.lint`, see http://www.coffeelint.org/#ap
 [MIT License](http://en.wikipedia.org/wiki/MIT_License) © [Jan Raasch](http://janraasch.com)
 
 [npm-url]: https://npmjs.org/package/coffeelint-stylish
-[npm-image]: https://badge.fury.io/js/coffeelint-stylish.png
+[npm-image]: http://img.shields.io/npm/v/coffeelint-stylish.svg
 
 [travis-url]: http://travis-ci.org/janraasch/coffeelint-stylish
-[travis-image]: https://secure.travis-ci.org/janraasch/coffeelint-stylish.png?branch=master
+[travis-image]: https://travis-ci.org/janraasch/coffeelint-stylish.svg?branch=master
 
-[coveralls-url]: https://coveralls.io/r/janraasch/coffeelint-stylish
-[coveralls-image]: https://coveralls.io/repos/janraasch/coffeelint-stylish/badge.png
+[coveralls-url]: https://coveralls.io/r/janraasch/coffeelint-stylish?branch=master
+[coveralls-image]: https://img.shields.io/coveralls/janraasch/coffeelint-stylish.svg
 
 [depstat-url]: https://david-dm.org/janraasch/coffeelint-stylish
-[depstat-image]: https://david-dm.org/janraasch/coffeelint-stylish.png
+[depstat-image]: https://david-dm.org/janraasch/coffeelint-stylish.svg
 
 [devdepstat-url]: https://david-dm.org/janraasch/coffeelint-stylish#info=devDependencies
-[devdepstat-image]: https://david-dm.org/janraasch/coffeelint-stylish/dev-status.png
+[devdepstat-image]: https://david-dm.org/janraasch/coffeelint-stylish/dev-status.svg
