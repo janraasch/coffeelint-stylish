@@ -1,6 +1,6 @@
 coffeelint-stylish [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![NPM version][npm-image]][npm-url]
 ==================
-[![Dependency Status][depstat-image]][depstat-url] [![devDependency Status][devdepstat-image]][devdepstat-url]
+[![Screenshot](http://img.shields.io/badge/pretty-stylish-ff69b4.svg)][screenshot-image] [![Dependency Status][depstat-image]][depstat-url] [![devDependency Status][devdepstat-image]][devdepstat-url]
 
 > Stylish reporter for CoffeeLint http://www.coffeelint.org. Heavily inspired by the beautiful [jshint-stylish](https://github.com/sindresorhus/jshint-stylish).
 
@@ -39,6 +39,8 @@ Results `Array` provided by `coffeelint.lint`, see http://www.coffeelint.org/#ap
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License) © [Jan Raasch](http://janraasch.com)
+
+[screenshot-image]: https://github.com/janraasch/coffeelint-stylish/blob/master/screenshot.png
 
 [npm-url]: https://npmjs.org/package/coffeelint-stylish
 [npm-image]: http://img.shields.io/npm/v/coffeelint-stylish.svg
