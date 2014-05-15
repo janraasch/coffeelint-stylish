@@ -5,8 +5,8 @@ table = require 'text-table'
 # sign language
 isWin = process.platform is 'win32'
 warnSign = "#{if isWin then '' else '⚠'}"
-errSign = "#{if isWin then '' else '✖'}"
-happySign = "#{if isWin then '' else '✔'}"
+errSign = "#{if isWin then '×' else '✖'}"
+happySign = "#{if isWin then '√' else '✔'}"
 
 reporter = (filename = '', results = []) ->
     errs = 0
@@ -26,7 +26,7 @@ reporter = (filename = '', results = []) ->
             ''
             chalk.gray if level is 'error' then errSign else warnSign
             chalk.gray 'line ' + lineNumber
-            chalk.blue message
+            chalk.cyan message
             chalk.gray context or ''
         ]
 
