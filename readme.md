@@ -4,13 +4,17 @@ coffeelint-stylish [![Build Status][travis-image]][travis-url] [![Coverage Statu
 
 > Stylish reporter for CoffeeLint http://www.coffeelint.org. Heavily inspired by the beautiful [jshint-stylish](https://github.com/sindresorhus/jshint-stylish).
 
-**Note:** This is soley to be used with CoffeeLint's [runtime](http://www.coffeelint.org/#api), i.e. `coffeelint.lint(source, configuration)`, not with the `coffeelint` commandline tool. Currently the commandline tool does not support external reporters.
-
 ![screenshot](screenshot.png)
 
 ## Install
 
 Install with [npm](https://npmjs.org/package/coffeelint-stylish): `npm install --save-dev coffeelint-stylish`.
+
+## Usage with CoffeeLint cli
+
+```bash
+coffeelint index.coffee --reporter coffeelint-stylish
+```
 
 ## Usage with CoffeeLint runtime
 
@@ -24,7 +28,7 @@ source = 'do -> coffee()'
 reporter filename, coffeelint source
 ```
 
-## Options `reporter(filename, results)`
+## Runtime Options `reporter(filename, results)`
 
 ### filename
 Type: `String`, Default: `''`
