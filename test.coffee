@@ -4,11 +4,54 @@ chalk = require 'chalk'
 coffeelint = require 'coffeelint'
 
 # SUT
-reporter = require('./index').reporter
+StylishReporter = require './index'
+reporter = StylishReporter.reporter
 
 
 describe 'coffeelint-stylish', ->
-    describe 'should prettily report coffeelint results', ->
+    describe 'should export a constructor', ->
+        fake_error_report =
+            paths:
+                'index.coffee': ['results_of_index.coffee']
+                'test.coffee': ['results_of_test.coffee']
+        stylish_instance = null
+
+        beforeEach ->
+            stylish_instance = new StylishReporter fake_error_report
+
+        it 'satisfying the coffeelint external reporter api', ->
+            assert.strictEqual stylish_instance.error_report, fake_error_report
+            assert.strictEqual typeof stylish_instance.publish, 'function'
+
+        it 'with instances referring back to .reporter internally', ->
+            _reporter = StylishReporter.reporter
+            ret1 = false
+            ret2 = false
+
+            # mock on
+            StylishReporter.reporter = (filename, results) ->
+                if (filename is 'index.coffee') and
+                    (results is fake_error_report.paths['index.coffee']) and
+                    (ret1 is false)
+                    then ret1 = true
+
+                if (filename is 'test.coffee') and
+                    (results is fake_error_report.paths['test.coffee']) and
+                    (ret2 is false)
+                    then ret2 = true
+
+                undefined
+
+            # run reporter
+            stylish_instance.publish()
+
+            # mock out
+            StylishReporter.reporter = _reporter
+
+            assert ret1
+            assert ret2
+
+    describe '.reporter should prettily report coffeelint results', ->
         it 'with a filename', ->
             ret = false
             _log = process.stdout.write
