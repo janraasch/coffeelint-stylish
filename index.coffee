@@ -3,10 +3,10 @@ chalk = require 'chalk'
 table = require 'text-table'
 
 # sign language
-isWin = process.platform is 'win32'
-warnSign = "#{if isWin then '' else '⚠'}"
-errSign = "#{if isWin then '' else '✖'}"
-happySign = "#{if isWin then '' else '✔'}"
+is_win = process.platform is 'win32'
+warn_sign = "#{if is_win then '' else '⚠'}"
+err_sign = "#{if is_win then '' else '✖'}"
+happy_sign = "#{if is_win then '' else '✔'}"
 
 reporter = (filename = '', results = []) ->
     errs = 0
@@ -24,7 +24,7 @@ reporter = (filename = '', results = []) ->
         # return line message
         [
             ''
-            chalk.gray if level is 'error' then errSign else warnSign
+            chalk.gray if level is 'error' then err_sign else warn_sign
             chalk.gray 'line ' + lineNumber
             chalk.blue message
             chalk.gray context or ''
@@ -35,17 +35,17 @@ reporter = (filename = '', results = []) ->
     # append summary line(s)
     if warns > 0
         ret += chalk.yellow(
-            "#{warnSign} #{warns} warning#{if warns is 1 then '' else 's'}"
+            "#{warn_sign} #{warns} warning#{if warns is 1 then '' else 's'}"
         )
         ret += '\n' if errs > 0
 
     if errs > 0
         ret += chalk.red(
-            "#{errSign} #{errs} error#{if errs is 1 then '' else 's'}"
+            "#{err_sign} #{errs} error#{if errs is 1 then '' else 's'}"
         )
 
     if errs is 0 and warns is 0
-        ret += chalk.green "#{happySign} No problems"
+        ret += chalk.green "#{happy_sign} No problems"
         ret = '\n' + ret.trim()
 
     # print table and summary line(s)
@@ -56,8 +56,8 @@ module.exports = class StylishReporter
     # CoffeeLint supported external reporters
     @reporter: reporter
 
-    constructor: (@errorReport) ->
+    constructor: (@error_report) ->
 
     publish: ->
-        for filename, results of @errorReport.paths
-            reporter filename, results
+        for filename, results of @error_report.paths
+            StylishReporter.reporter filename, results
