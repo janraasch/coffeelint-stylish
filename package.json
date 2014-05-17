@@ -1,7 +1,7 @@
 {
   "name": "coffeelint-stylish",
-  "version": "0.0.1",
-  "description": "Stylish reporter for CoffeeLint runtime",
+  "version": "0.1.0",
+  "description": "Stylish reporter for CoffeeLint",
   "keywords": [
     "reporter",
     "validate",
