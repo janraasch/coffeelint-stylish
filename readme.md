@@ -28,7 +28,7 @@ source = 'do -> coffee()'
 reporter filename, coffeelint source
 ```
 
-## Runtime Options `reporter(filename, results)`
+## Runtime API `reporter(filename, results)`
 
 ### filename
 Type: `String`, Default: `''`
