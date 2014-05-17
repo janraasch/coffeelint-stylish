@@ -26,8 +26,9 @@
   ],
   "scripts": {
     "prepublish": "gulp coffee --require \"coffee-script/register\"",
-    "test": "coffeelint index.coffee test.coffee gulpfile.coffee -f ./coffeelint.json && istanbul test _mocha --report lcovonly -- test.coffee --require coffee-script/register --reporter spec",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "coffeelint index.coffee test.coffee gulpfile.coffee && istanbul test _mocha --report lcovonly -- test.coffee --require coffee-script/register --reporter spec",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "lint-with-this": "coffeelint index.coffee test.coffee gulpfile.coffee --reporter ./"
   },
   "dependencies": {
     "chalk": "^0.4.0",
