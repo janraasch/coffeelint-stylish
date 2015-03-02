@@ -31,7 +31,7 @@
     "lint-with-this": "coffeelint index.coffee test.coffee gulpfile.coffee --reporter ./"
   },
   "dependencies": {
-    "chalk": "^0.5.1",
+    "chalk": "^1.0.0",
     "text-table": "^0.2.0"
   },
   "devDependencies": {
