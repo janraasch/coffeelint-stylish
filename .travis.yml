@@ -1,8 +1,18 @@
 language: node_js
 node_js:
-    - '0.10'
-    - '0.11'
+- '0.10'
+- '0.11'
 before_script:
-    - npm config set coverage true
+- npm config set coverage true
 after_success:
-    - npm run-script coveralls
+- npm run-script coveralls
+deploy:
+  provider: npm
+  email: jan@janraasch.com
+  api_key:
+    secure: M7tyVPmVdD4ogxHpNFZBcbBLsIAiGMY+mPyXpCR2sMLaoop8ZhCkRi/gbhZ4POh0KOmGiQ/8kHblWd8aLpQ0DeKd+XoNwimrDOalHNG0JU7Rr4Ev6tJ/j0c3/Mwnc5bBfjFH0lCEDynhN/CUU5Q+OUTiM8TgtqDiZ7gApCqFbPE=
+  on:
+    tags: true
+    repo: janraasch/coffeelint-stylish
+    node: '0.10'
+    branch: master
