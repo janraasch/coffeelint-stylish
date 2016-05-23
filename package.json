@@ -43,7 +43,7 @@
     "gulp-coffee": "^2.1.2",
     "gulp-util": "^3.0.0",
     "istanbul": "^0.4.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.5.0"
   },
   "engines": {
     "node": ">=0.10.0",
